@@ -1,0 +1,18 @@
+url
+-----
+http://127.0.0.1:8080/teams/main/pipelines/springcloudtask
+
+
+Create pipeline
+-----------------
+fly -t balaweblog set-pipeline -p springcloudtask -c springcloudtaskpipeline.yml -l springcloudtasksecret.yml
+
+trigger pipeline
+--------------------
+
+fly -t balaweblog trigger-job --job springcloudtask/springcloudtask_buildjob
+
+
+validate pipeline
+-----------------
+fly validate-pipeline -c springcloudtaskpipeline.yml
